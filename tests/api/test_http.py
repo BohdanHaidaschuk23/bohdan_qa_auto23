@@ -9,8 +9,19 @@ import pytest
 
 
 @pytest.mark.http
-def second_request():
+def test_second_request():
     r = requests.get('https://api.github.com/users/defunkt')
-    print(f"Response Body is {r.json()}")
-    print(f"Response Status code is {r.status_code}")
-    print(f"Response Headers is {r.headers}")
+    body = r.json()
+    headers = r.headers
+
+    assert body['name'] == 'Chris Wanstrath'
+    #print(f"Response Body is {r.json()}")
+    assert r.status_code == 200
+    assert headers['Server'] == 'GitHub.com'
+
+
+@pytest.mark.http
+def test_user_address_request():
+    r = requests.get('https://api.github.com/users/sergii_butenko')
+
+    assert r.status_code == 404
