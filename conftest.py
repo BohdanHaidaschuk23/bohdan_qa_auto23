@@ -1,5 +1,5 @@
 import pytest
-from api.github import Github
+from tests.api.github import Github
 
 class User:
 
