@@ -1,7 +1,7 @@
 from modules.ui.page_objects.sign_in_page import SignInPage
 import pytest
 
-@pytest.mark.ui
+@pytest.mark.check
 def test_check_incorrect_username_page_object():
     sign_in_page = SignInPage()
     sign_in_page.go_to()

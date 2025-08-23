@@ -10,7 +10,7 @@ import time
 
 @pytest.mark.ui
 def test_check_incorrect_name():
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.get("https://github.com/login")
     login_elem = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.ID, "login_field")))
